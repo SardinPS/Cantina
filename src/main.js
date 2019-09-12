@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import bootstrap from 'bootstrap/dist/css/bootstrap.css'
 import bootstrapJS from 'bootstrap/dist/js/bootstrap.js'
+import Toasted from 'vue-toasted'
 
 Vue.config.productionTip = false
 
@@ -14,6 +15,7 @@ new Vue({
   router,
   bootstrap,
   bootstrapJS,
+  Toasted,
   components: { App },
   template: '<App/>'
 })

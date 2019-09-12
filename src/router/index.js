@@ -4,7 +4,7 @@ import Home from '@/components/Home'
 import Edit from '@/components/Edit'
 import Add from '@/components/Add'
 import All from '@/components/All'
-import Navbar from '@/components/Navbar'
+
 
 Vue.use(Router)
 
@@ -30,11 +30,5 @@ export default new Router({
       name: 'All',
       component: All
     },
-    {
-      path: '/Navbar',
-      name: 'Navbar',
-      component: Navbar
-    }
-
   ]
 })
