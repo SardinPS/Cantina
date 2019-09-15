@@ -8,8 +8,8 @@
     <div class="navbar-nav">
       <router-link to ="/">Accueil</router-link>
       <router-link to ="All">Toutes nos recettes</router-link>
-      <router-link to ="Edit">Modifier une recette</router-link>
       <router-link to ="Add">Ajouter une recette</router-link>
+      <router-link to ="Edit">Modifier une recette</router-link>
     </div>
   </div>
 </nav>

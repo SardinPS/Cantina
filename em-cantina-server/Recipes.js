@@ -178,7 +178,7 @@ module.exports = class Recipes {
     delete(recipeObj) {
         const recipeIndex = this.recipes.findIndex(recipe => recipe.id === recipeObj.id)
 
-        if (!recipeIndex) throw new Error(`Rien à supprimer`)
+        if (recipeIndex === -1) throw new Error('Rien à supprimer')
 
         this.recipes.splice(recipeIndex, 1)
 

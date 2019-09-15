@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Bienvenue à la Cantina</h1>
     <h2>La cuisine gastronomique chez vous</h2>
-    <h3>Voici un exemple de recette faite pour vous</h3>
+    <h3>Retrouvez toutes nos recettes sur cette page</h3>
     <RecipeCard v-for="recipe in recipeList" :recipe="recipe" :key="recipe.id" />
   </div>
 </template>
@@ -24,8 +24,6 @@ export default {
     DBservices
       .fetchAll()
       .then(recipeList => {
-        console.log('Recettes', recipeList);
-
         this.recipeList = recipeList;
       });
   }

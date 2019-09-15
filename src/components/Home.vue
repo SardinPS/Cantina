@@ -4,33 +4,42 @@
     <h2>La cuisine gastronomique chez vous</h2>
     <div class="col-md-12">
       <h3>Voici un exemple de recette faite pour vous</h3>
-      <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-          <img src="../assets/logo.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Pates au saumon</h5>
-            <p class="card-text">Pates au saumon avec de la creme fraiche</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Niveau de difficulté : Padawan</li>
-            <li class="list-group-item">Nombre de personnes : 2</li>
-            <li class="list-group-item">Temps de préparation : 20 min</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link">Modifier</a>
-            <a href="#" class="card-link">Supprimer</a>
-          </div>
-        </div>
-      </div>
+      <RecipeCard :recipe="instructions" v-if="instructions" />
+    </div>
+    <div class="actions">
+      <a href="#" class="btn" @click.prevent="getRandomRecipe">
+        <i class="fa fa-random"/> Regarder une autre recette
+      </a>
     </div>
   </div>
 </template>
 
 <script>
+import DBservices from '../services/DBservices.js'
+import RecipeCard from './RecipeCard'
 export default {
   name: "Home",
-  data() {
-    return {};
+  components : {
+    RecipeCard
+  },
+  data : function() {
+    return {
+      directions : null,
+      instructions : null
+    };
+  },
+  methods : {
+    getRandomRecipe : function() {
+      this.instructions = this.directions[ Math.floor(Math.random() * this.directions.length) ];
+    }
+  },
+  created : function() {
+    DBservices
+      .fetchAll()
+      .then(recipeList => {
+        this.directions = recipeList;
+        this.getRandomRecipe();
+      })
   }
 };
 </script>
