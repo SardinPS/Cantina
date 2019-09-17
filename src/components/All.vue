@@ -32,9 +32,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.card{
+  display: inline-flex;
+  margin: 20px;
+  height: 700px;
+}
 h1,
-h2 {
-  font-weight: normal;
+h2,
+h3 {
+  font-family: 'Cinzel', sans-serif;
+  margin : 20px 0;
 }
 ul {
   list-style-type: none;

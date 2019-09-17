@@ -2,68 +2,41 @@
   <div class="container">
     <div class="row">
     <h1>Vous souhaitez ajouter une recette à notre liste ?</h1>
-    <h2>Rien de plus simple, il vous suffit juste de remplir le formulaire ci-dessous</h2>
-    <form>
-
-<label for="basic-url">Your vanity URL</label>
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon3">Titre</span>
-  </div>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Description</span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Niveau</span>
-  </div>
-  <select class="form-control" aria-label="With textarea">
-    <option value="1">Pandawan</option>
-    <option value="2">Jedi</option>
-    <option value="3">Maître</option>
-  </select>
-</div>
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon3">Personnes requises</span>
-  </div>
-  <input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="basic-addon3">Temps de préparation (En minutes)</span>
-  </div>
-  <input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-      <input type="submit" value="Envoyer">
-    </form>
+    <h2>Rien de plus simple</h2>
+    <h2> il vous suffit juste de remplir le formulaire ci-dessous</h2>
+    <Form @send="addRecipe" />
     </div>
   </div>
 </template>
 
 <script>
+import DBservices from '../services/DBservices'
+import Form from './Form'
 export default {
   name: 'Add',
-  data () {
-    return {
-
-    }
+  components : {
+    Form
   },
+  methods : {
+    addRecipe : function (recipe){
+      DBservices
+        .addRecipe(recipe)
+        .then(() => {
+          this.$router.replace("/All")
+        })
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+h1,
+h2,
+h3 {
+  font-family: 'Cinzel', sans-serif;
+  margin : 20px 0;
+  text-align: center;
 }
 ul {
   list-style-type: none;

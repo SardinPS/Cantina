@@ -1,16 +1,20 @@
 <template>
   <div class="container">
+    <div class="row">
+      <div class="col-md-12">
     <h1>Bienvenue à la Cantina</h1>
+  </div>
     <h2>La cuisine gastronomique chez vous</h2>
-    <div class="col-md-12">
+     
       <h3>Voici un exemple de recette faite pour vous</h3>
-      <RecipeCard :recipe="instructions" v-if="instructions" />
-    </div>
-    <div class="actions">
-      <a href="#" class="btn" @click.prevent="getRandomRecipe">
+  
+    <div class="actions col-md-12">
+      <a href="#" class="btn" @click.prevent="getRandomRecipe" id="btn">
         <i class="fa fa-random"/> Regarder une autre recette
       </a>
     </div>
+        <RecipeCard :recipe="instructions" v-if="instructions" />
+  </div>
   </div>
 </template>
 
@@ -46,10 +50,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.col-md-6{
+  margin : 0!important;
 }
+.card{
+  margin: 10px auto;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Cinzel', sans-serif;
+  margin : 20px 0;
+}
+h2,h3{
+  font-size: 24px;
+  margin : 0 25px;
+
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -60,10 +78,20 @@ li {
 }
 a {
   color: #42b983;
+  font-weight: bold;
+  text-align: center;
+  padding : 20px;
 }
 .card img{
   max-height: 200px;
   max-width: 200px;
+}
+
+#btn{
+  margin: 20px 0;
+  background-color: #42b983;
+  color: white;
+  padding: 10px;
 }
 
 </style>
