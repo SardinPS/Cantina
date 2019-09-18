@@ -3,7 +3,7 @@
     <h1>Bienvenue à la Cantina</h1>
     <h2>La cuisine gastronomique chez vous</h2>
     <h3>Retrouvez toutes nos recettes sur cette page</h3>
-    <RecipeCard v-for="recipe in recipeList" :recipe="recipe" :key="recipe.id" />
+    <RecipeCard v-for="recipe in recipeList" :recipe="recipe" :key="recipe.id" @remove="removeRecipe" />
   </div>
 </template>
 
@@ -18,6 +18,16 @@ export default {
   data () {
     return {
       recipeList : null
+    }
+  },
+  methods : {
+    removeRecipe : function(recipeToDelete){
+      DBservices.removeRecipe(recipeToDelete).then(res => {
+          let index = this.directions.indexOf(recipeToDelete);
+          if(index > -1){
+            this.directions.splice(index, 1); 
+          }
+      });
     }
   },
   created : function() {

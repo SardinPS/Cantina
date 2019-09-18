@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import Add from '@/components/Add'
 import All from '@/components/All'
+import Recipe from '@/components/Recipe'
 
 
 Vue.use(Router)
@@ -24,5 +25,10 @@ export default new Router({
       name: 'All',
       component: All
     },
+    {
+      path: '/Recipe/:id',
+      name: 'Recipe',
+      component : Recipe,
+  }
   ]
 })

@@ -10,10 +10,10 @@
   
     <div class="actions col-md-12">
       <a href="#" class="btn" @click.prevent="getRandomRecipe" id="btn">
-        <i class="fa fa-random"/> Regarder une autre recette
+         Regarder une autre recette
       </a>
     </div>
-        <RecipeCard :recipe="instructions" v-if="instructions" />
+        <RecipeCard :recipe="instructions" v-if="instructions" @remove="removeRecipe" />
   </div>
   </div>
 </template>
@@ -35,6 +35,16 @@ export default {
   methods : {
     getRandomRecipe : function() {
       this.instructions = this.directions[ Math.floor(Math.random() * this.directions.length) ];
+    },
+    removeRecipe : function(recipeToDelete){
+      DBservices.removeRecipe(recipeToDelete).then(res => {
+          let index = this.directions.indexOf(recipeToDelete);
+          if(index > -1){
+            this.directions.splice(index, 1); 
+          }
+          this.getRandomRecipe();
+        
+      });
     }
   },
   created : function() {
@@ -50,9 +60,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.col-md-6{
-  margin : 0!important;
-}
+
 .card{
   margin: 10px auto;
 }

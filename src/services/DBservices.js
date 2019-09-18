@@ -19,5 +19,15 @@ export default {
         return axios.post(`${API_ENDPOINT}api/recipes`, recipeObj)
             .then(res => res.data)
             .catch(errorHandler)
-    }
+    },
+    fetchOne: function (id) {
+        return axios.get(`${API_ENDPOINT}api/recipe/${id}`)
+            .then(res => res.data)
+            .catch(errorHandler)
+    },
+    removeRecipe: function (recipeObj) {
+        return axios.delete(`${API_ENDPOINT}api/recipe/${recipeObj.id}`)
+            .then(res => res.data)
+            .catch(errorHandler)
+    },
 }

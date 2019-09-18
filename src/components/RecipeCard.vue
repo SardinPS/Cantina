@@ -10,12 +10,11 @@
         <li class="list-group-item">{{ recipe.personnes | person }}</li>
         <li class="list-group-item">Temps de préparation : {{ recipe.tempsPreparation | convert }}</li>
         <li class="list-group-item">
-          <router-link to ="/">Voir la recette en détail</router-link>
+          <router-link :to ="`/Recipe/${recipe.id}`">Voir la recette en détail</router-link>
         </li>
       </ul>
       <div class="card-body">
-        <a href="#" class="card-link">Modifier</a>
-        <a href="#" class="card-link">Supprimer</a>
+        <a href="#" class="card-link" @click.prevent="onRemove">Supprimer</a>
       </div>
     </div>
 </template>
@@ -23,9 +22,7 @@
 <script>
 export default {
   name: "RecipeCard",
-  data() {
-    return {};
-  },
+
   filters: {
     convert: function(value) {
       var nbH = parseInt(value / 60);
@@ -61,6 +58,11 @@ export default {
     recipe: {
       type: Object,
       required: true
+    }
+  },
+  methods : {
+    onRemove : function (){
+      this.$emit('remove', this.recipe);
     }
   }
 };

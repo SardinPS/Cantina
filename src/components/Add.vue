@@ -1,11 +1,9 @@
 <template>
   <div class="container">
-    <div class="row">
     <h1>Vous souhaitez ajouter une recette à notre liste ?</h1>
     <h2>Rien de plus simple</h2>
     <h2> il vous suffit juste de remplir le formulaire ci-dessous</h2>
     <Form @send="addRecipe" />
-    </div>
   </div>
 </template>
 
