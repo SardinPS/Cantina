@@ -7,8 +7,8 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <router-link to ="/">Accueil</router-link>
-      <router-link to ="All">Toutes nos recettes</router-link>
-      <router-link to ="Add">Ajouter une recette</router-link>
+      <router-link to ="/All">Toutes nos recettes</router-link>
+      <router-link to ="/Add">Ajouter une recette</router-link>
     </div>
   </div>
 </nav>

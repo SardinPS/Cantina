@@ -13,7 +13,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text">Description</span>
       </div>
-      <textarea class="form-control" aria-label="With textarea" v-model="recipe.description" id="description" placeholder="Caramel avec une casserole"></textarea>
+      <textarea class="form-control" aria-label="With textarea" v-model="recipe.description" id="description" placeholder="Caramel dans une casserole"></textarea>
       <span v-if="$v.recipe.description.$dirty && !$v.recipe.description.required">Le champs est requis</span>
     </div>
 
